@@ -4,10 +4,8 @@ const { indexOf } = require("../data/orders-data");
 // Use the existing order data
 const orders = require(path.resolve("src/data/orders-data"));
 
-// Use this function to assigh ID's when necessary
+// Use this function to assign IDs when necessary
 const nextId = require("../utils/nextId");
-
-// TODO: Implement the /orders handlers needed to make the tests pass
 
 // <<------- VALIDATION ------->>
 function orderExists(request, response, next) {
@@ -158,7 +156,8 @@ function orderStatusIsPending(request, response, next) {
 // POST /orders
 function create(request, response, next) {
   const { deliverTo, mobileNumber, dishes } = response.locals;
-  const { status } = request.body;
+  // set default status of new orders as "pending", unless otherwise specified
+  const { status = "pending" } = request.body;
   const id = nextId();
   const newOrder = {
     id,
