@@ -24,3 +24,4 @@ You've been hired as a backend developer for a new startup called GrubDash! As a
 ## takeaways:
 
 - Completed CRUDL functions to make an API function between a client and server.
+- Built middleware to validate input.
